@@ -10,6 +10,16 @@ import React, {
 } from 'react-native';
 
 const { height: deviceHeight, width: deviceWidth} = Dimensions.get('window');
+const mstyles = {
+  modal : {
+    width: 240,
+    height: 300,
+    backgroundColor: '#FFF'
+  },
+  overlay : {
+    
+  }
+};
 
 class Example extends Component {
   constructor(props) {
@@ -33,7 +43,8 @@ class Example extends Component {
             <Text>Open Modal</Text>
           </TouchableOpacity>
         </View>
-        <Modal isOpen={this.state.isOpen}>
+        <Modal isOpen={this.state.isOpen}
+               styles={mstyles}>
           <TouchableOpacity onPress={this.closeModal.bind(this)}>
             <Text>Close Modal</Text>
           </TouchableOpacity>
@@ -46,28 +57,37 @@ class Example extends Component {
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = { offset: new Animated.Value(deviceHeight) };
+    this.state = {
+      isOpen: false,
+      offset: new Animated.Value(deviceHeight)
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.isOpen) {
+    if (nextProps.isOpen && !this.state.isOpen) {
+      this.setState({isOpen: 'false'});
       Animated.timing(this.state.offset, {
-        duration: 100,
+        duration: 200,
         toValue: 0
       }).start();
-    } else {
-      //Animated.timing(this.state.offset, {
-      //  duration: 100,
-      //  toValue: deviceHeight
-      //}).start(this.props.closeModal);
+    } else if (!nextProps.isOpen && this.state.isOpen) {
+      Animated.timing(this.state.offset, {
+        duration: 200,
+        toValue: deviceHeight
+      }).start(() => {this.setState({isOpen: false});});
     }
   }
 
   render() {
-    if (!this.props.isOpen) return null;
+    if (!this.state.isOpen) return null;
+    const style = {
+      position: 'absolute',
+      top: (deviceHeight - this.props.styles.modal.height) / 2,
+      left: (deviceWidth - this.props.styles.modal.width) / 2
+    };
     return (
       <Animated.View style={[styles.overlay, styles.flexCenter, {transform: [{translateY: this.state.offset}]}]}>
-        <View style={styles.modal}>
+        <View style={[this.props.styles.modal, style]}>
           {this.props.children}
         </View>
       </Animated.View>
@@ -91,14 +111,6 @@ const styles = StyleSheet.create({
     left: 0,
     width: deviceWidth,
     height: deviceHeight
-  },
-  modal: {
-    backgroundColor: '#FF0000',
-    position: 'absolute',
-    top: (deviceHeight - 300) / 2,
-    left: (deviceWidth - 280) / 2,
-    width:280,
-    height:300
   }
 });
 
