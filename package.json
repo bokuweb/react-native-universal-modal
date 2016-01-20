@@ -1,11 +1,31 @@
 {
-  "name": "reactNativeModalAndroid",
-  "version": "0.0.1",
-  "private": true,
+  "name": "react-native-universal-modal",
+  "version": "0.1.0",
+  "description": "react-native-universal-modal",
+  "main": "index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react-native": "^0.18.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bokuweb/react-native-universal-modal.git"
+  },
+  "keywords": [
+    "react-native",
+    "android",
+    "iOS",
+    "modal"
+  ],
+  "author": {
+    "name": "bokuweb",
+    "email": "bokuweb12@gmail.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bokuweb/react-native-universal-modal/issues"
+  },
+  "homepage": "https://github.com/bokuweb/react-native-universal-modal"
 }
