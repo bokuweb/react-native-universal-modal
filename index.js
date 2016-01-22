@@ -43,7 +43,7 @@ export default class Modal extends Component {
       left: (deviceWidth - this.props.styles.modal.width) / 2
     };
     return (
-      <Animated.View style={[styles.overlay, styles.flexCenter, {transform: [{translateY: this.state.offset}]}]}>
+      <Animated.View style={[styles.overlay, styles.flexCenter, this.props.styles.overlay, {transform: [{translateY: this.state.offset}]}]}>
         <View style={[this.props.styles.modal, style]}>
           {this.props.children}
         </View>
