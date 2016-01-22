@@ -28,7 +28,7 @@ class Example extends Component {
     const modalStyles = {
       modal : {
         width: 240,
-        height: 180,
+        height: 160,
         backgroundColor: '#FFF'
       },
       overlay : {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center', 
     alignItems: 'center',
-    paddingTop: 80
+    paddingTop: 70
   },
   button: {
     paddingTop: 20,
