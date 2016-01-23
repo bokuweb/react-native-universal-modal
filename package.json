@@ -1,6 +1,6 @@
 {
   "name": "react-native-universal-modal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react-native-universal-modal",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "react-native",
     "android",
     "iOS",
-    "modal"
+    "modal",
+    "universal"
   ],
   "author": {
     "name": "bokuweb",
