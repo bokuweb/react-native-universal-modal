@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('reactNativeModalAndroid', () => );
+AppRegistry.registerComponent('reactNativeModalAndroid', () => test);
