@@ -37,14 +37,33 @@ export default class Modal extends Component {
 
   render() {
     if (!this.state.isOpen) return null;
-    const style = {
-      position: 'absolute',
-      top: (deviceHeight - this.props.styles.modal.height) / 2,
-      left: (deviceWidth - this.props.styles.modal.width) / 2
-    };
+    const styles = StyleSheet.create({
+      overlay: {
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: deviceWidth,
+        height: deviceHeight
+      },
+      modal: {
+        position: 'absolute',
+        top: (deviceHeight - this.props.styles.modal.height) / 2,
+        left: (deviceWidth - this.props.styles.modal.width) / 2
+      }
+    });
+
     return (
-      <Animated.View style={[styles.overlay, styles.flexCenter, {transform: [{translateY: this.state.offset}]}]}>
-        <View style={[this.props.styles.modal, style]}>
+      <Animated.View style={[
+                       styles.overlay,
+                       styles.flexCenter,
+                       this.props.styles.overlay,
+                       {transform: [{translateY: this.state.offset}]}
+                     ]}>
+        <View style={[
+                this.props.styles.modal,
+                styles.modal
+              ]}>
           {this.props.children}
         </View>
       </Animated.View>
@@ -52,13 +71,4 @@ export default class Modal extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  overlay: {
-    backgroundColor: 'rgba(0,0,0,0.8)',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: deviceWidth,
-    height: deviceHeight
-  }
-});
+
