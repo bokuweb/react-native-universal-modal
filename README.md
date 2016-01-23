@@ -2,7 +2,13 @@
 
 This repository is heavily under development and unstable.
 
+## screen shot
+
+![]("https://raw.githubusercontent.com/bokuweb/react-native-universal-modal/master/screenshot/ios-modal.gif")
+![]("https://raw.githubusercontent.com/bokuweb/react-native-universal-modal/master/screenshot/android-modal.gif")
+
+
 - [x] Support Android
-- [ ] Support scroll view
-- [ ] Support iOS
+- [x] Support iOS
 - [ ] Unit test
+
