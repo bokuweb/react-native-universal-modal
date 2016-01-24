@@ -5,12 +5,15 @@ Universal simple modal component for React Native
 
 ## screen shot
 
-- iOS
+- iOS    
+   
 ![](https://raw.githubusercontent.com/bokuweb/react-native-universal-modal/master/screenshot/ios-modal.gif)
   
-- Android  
-![](https://raw.githubusercontent.com/bokuweb/react-native-universal-modal/master/screenshot/android-modal.gif)
+- Android     
 
+![](https://raw.githubusercontent.com/bokuweb/react-native-universal-modal/master/screenshot/android-modal.gif)
+   
+   
 ## Important Note
 
 This repository is heavily under development and unstable.
