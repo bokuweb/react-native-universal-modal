@@ -54,16 +54,14 @@ export default class Modal extends Component {
     });
 
     return (
-      <Animated.View style={[
-                       styles.overlay,
-                       styles.flexCenter,
-                       this.props.styles.overlay,
-                       {transform: [{translateY: this.state.offset}]}
-                     ]}>
-        <View style={[
-                this.props.styles.modal,
-                styles.modal
-              ]}>
+      <Animated.View
+         style={[
+           styles.overlay,
+           styles.flexCenter,
+           this.props.styles.overlay,
+           {transform: [{translateY: this.state.offset}]}
+         ]}>
+        <View style={[this.props.styles.modal, styles.modal]}>
           {this.props.children}
         </View>
       </Animated.View>
