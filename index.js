@@ -22,7 +22,7 @@ export default class Modal extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isOpen && !this.state.isOpen) {
-      this.setState({isOpen: 'false'});
+      this.setState({isOpen: true});
       Animated.timing(this.state.offset, {
         duration: 200,
         toValue: 0
@@ -54,16 +54,14 @@ export default class Modal extends Component {
     });
 
     return (
-      <Animated.View style={[
-                       styles.overlay,
-                       styles.flexCenter,
-                       this.props.styles.overlay,
-                       {transform: [{translateY: this.state.offset}]}
-                     ]}>
-        <View style={[
-                this.props.styles.modal,
-                styles.modal
-              ]}>
+      <Animated.View
+         style={[
+           styles.overlay,
+           styles.flexCenter,
+           this.props.styles.overlay,
+           {transform: [{translateY: this.state.offset}]}
+         ]}>
+        <View style={[this.props.styles.modal, styles.modal]}>
           {this.props.children}
         </View>
       </Animated.View>
@@ -71,4 +69,21 @@ export default class Modal extends Component {
   }
 }
 
+Modal.propTypes = {
+  styles:  React.PropTypes.object,
+  isOpen: React.PropTypes.bool.isRequired
+};
 
+Modal.defaultProps = {
+  styles: {
+    modal: {
+      width: 100,
+      height: 100,
+      backgroundColor: '#FFF'
+    },
+    overlay: {
+      backgroundColor: 'rgba(0,0,0,0.6)'
+    }
+  },
+  isOpen: false
+};
