@@ -69,4 +69,21 @@ export default class Modal extends Component {
   }
 }
 
+Modal.propTypes = {
+  styles:  React.PropTypes.object,
+  isOpen: React.PropTypes.bool.isRequired
+};
 
+Modal.defaultProps = {
+  styles: {
+    modal: {
+      width: 100,
+      height: 100,
+      backgroundColor: '#FFF'
+    },
+    overlay: {
+      backgroundColor: 'rgba(0,0,0,0.6)'
+    }
+  },
+  isOpen: false
+};
