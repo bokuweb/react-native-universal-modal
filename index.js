@@ -22,7 +22,7 @@ export default class Modal extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isOpen && !this.state.isOpen) {
-      this.setState({isOpen: 'false'});
+      this.setState({isOpen: true});
       Animated.timing(this.state.offset, {
         duration: 200,
         toValue: 0
