@@ -63,7 +63,7 @@ const modalStyles = {
 
 #### isOpen {bool}
 
-If true, modal is open.
+If set `true`, modal is open.
 
 ## License
 
